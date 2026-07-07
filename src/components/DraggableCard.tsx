@@ -46,7 +46,7 @@ export function DraggableCard({ id, text, reason, cat, isChecked, currentZone }:
       {...listeners}
       {...attributes}
       className={cn(
-        "border shadow-sm p-3 rounded-lg text-xs font-semibold flex flex-col justify-center leading-tight cursor-grab touch-none select-none transition-colors w-full sm:w-auto sm:max-w-xs",
+        "border shadow-sm p-4 rounded-lg text-sm sm:text-base md:text-lg font-semibold flex flex-col justify-center leading-tight cursor-grab touch-none select-none transition-colors w-full sm:w-auto",
         isDragging && "opacity-50 scale-95 shadow-lg",
         !isDragging && !isChecked && "active:cursor-grabbing",
         stateClasses

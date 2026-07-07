@@ -119,30 +119,32 @@ export default function App() {
         </div>
       </header>
 
-      <main className="flex flex-col flex-grow p-4 sm:p-6 gap-6 max-w-[1200px] w-full mx-auto">
+      <main className="flex flex-col lg:flex-row flex-grow p-4 sm:p-6 gap-6 max-w-[1400px] w-full mx-auto">
         <DndContext sensors={sensors} onDragEnd={handleDragEnd}>
           {/* Card Pool Area */}
-          <PoolZone>
-            {poolCards.length === 0 && (
-              <div className="text-slate-400 text-sm flex items-center justify-center w-full h-full min-h-[50px]">
-                Semua kartu sudah dipindahkan.
-              </div>
-            )}
-            {poolCards.map(card => (
-              <DraggableCard 
-                key={card.id} 
-                id={card.id} 
-                text={card.t} 
-                reason={card.why}
-                cat={card.cat}
-                isChecked={isChecked}
-                currentZone={card.zone}
-              />
-            ))}
-          </PoolZone>
+          <div className="w-full lg:w-1/2 flex flex-col min-h-[400px]">
+            <PoolZone>
+              {poolCards.length === 0 && (
+                <div className="text-slate-400 text-base flex items-center justify-center w-full h-full min-h-[50px]">
+                  Semua kartu sudah dipindahkan.
+                </div>
+              )}
+              {poolCards.map(card => (
+                <DraggableCard 
+                  key={card.id} 
+                  id={card.id} 
+                  text={card.t} 
+                  reason={card.why}
+                  cat={card.cat}
+                  isChecked={isChecked}
+                  currentZone={card.zone}
+                />
+              ))}
+            </PoolZone>
+          </div>
 
           {/* Drop Zones */}
-          <section className="grid grid-cols-1 md:grid-cols-3 gap-6 flex-grow">
+          <section className="w-full lg:w-1/2 flex flex-col gap-6">
             <DroppableZone 
               id="aman" 
               title="Aman Dibagikan" 
